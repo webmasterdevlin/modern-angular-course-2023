@@ -16,8 +16,8 @@ import { store } from 'src/app/store';
       {{ link.name }}
     </button>
     <div>USERS: {{ globalState().users.length }}</div>
-    <div>POSTS: {{ globalState().posts.length }}</div>
     <div>TODOS: {{ globalState().todos.length }}</div>
+    <div>POSTS: {{ globalState().posts.length }}</div>
   `,
 })
 export class NavBarComponent {
@@ -38,7 +38,9 @@ export class NavBarComponent {
   constructor(private router: Router) {}
   globalState = store;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('NavBarComponent');
+  }
 
   to(url: string) {
     this.router.navigateByUrl(url);

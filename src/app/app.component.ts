@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   template: `
     <app-nav-bar></app-nav-bar>
-    <div class="mx-auto">
+    <div class="container mx-auto">
       <router-outlet></router-outlet>
     </div>
   `,

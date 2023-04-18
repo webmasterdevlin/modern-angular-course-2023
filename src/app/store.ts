@@ -1,9 +1,13 @@
 import { signal } from '@angular/core';
+import { Post, Todo, User } from './models';
 
-export let store = signal({
-  x: 'defaultX',
-  y: 'defaultY',
-  z: 'defaultZ',
+export type StoreType = {
+  todos: Todo[];
+  users: User[];
+  posts: Post[];
+};
+
+export let store = signal<StoreType>({
   todos: [],
   users: [],
   posts: [],
