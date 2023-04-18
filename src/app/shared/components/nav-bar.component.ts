@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { SharedModule } from '../shared.module';
 import { Router } from '@angular/router';
+import { store } from 'src/app/store';
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,6 +15,9 @@ import { Router } from '@angular/router';
     >
       {{ link.name }}
     </button>
+    <div>USERS: {{ globalState().users.length }}</div>
+    <div>POSTS: {{ globalState().posts.length }}</div>
+    <div>TODOS: {{ globalState().todos.length }}</div>
   `,
 })
 export class NavBarComponent {
@@ -31,8 +35,8 @@ export class NavBarComponent {
       url: 'posts',
     },
   ];
-
   constructor(private router: Router) {}
+  globalState = store;
 
   ngOnInit(): void {}
 
