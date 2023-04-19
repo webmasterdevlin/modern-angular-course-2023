@@ -16,6 +16,7 @@ import { fetchTodos, removeTodoById, store } from '../store';
     </ul>
   `,
 })
+// hard to test component
 export class TodosComponent {
   globalStore = store;
 
