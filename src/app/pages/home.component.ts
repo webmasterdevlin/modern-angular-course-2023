@@ -7,9 +7,11 @@ import { store } from '../store';
   standalone: true,
   imports: [SharedModule],
   template: `
-    <div>USERS: {{ globalState().users.length }}</div>
-    <div>TODOS: {{ globalState().todos.length }}</div>
-    <div>POSTS: {{ globalState().posts.length }}</div>
+    <section>
+      <div>users left: {{ globalState().users.length }}</div>
+      <div>todos left: {{ globalState().todos.length }}</div>
+      <div>posts left: {{ globalState().posts.length }}</div>
+    </section>
   `,
 })
 export class HomeComponent {

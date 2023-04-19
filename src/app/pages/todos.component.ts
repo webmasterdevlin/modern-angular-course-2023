@@ -9,7 +9,7 @@ import { Todo } from '../models';
   selector: 'app-todos',
   standalone: true,
   imports: [SharedModule],
-  template: ` <p>todos works!</p> `,
+  template: `<h2>Todos Works!</h2> `,
 })
 export class TodosComponent {
   private _service = inject(JsonPlaceHolderService);

@@ -9,7 +9,7 @@ import { User } from '../models';
   selector: 'app-users',
   standalone: true,
   imports: [SharedModule],
-  template: ` <p>users works!</p> `,
+  template: `<h2>Users Works!</h2> `,
 })
 export class UsersComponent {
   private _service = inject(JsonPlaceHolderService);

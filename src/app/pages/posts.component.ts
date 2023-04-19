@@ -8,7 +8,7 @@ import { Post } from '../models';
   selector: 'app-posts',
   standalone: true,
   imports: [SharedModule],
-  template: ` <p>posts works!</p> `,
+  template: `<h2>Posts Works!</h2> `,
 })
 export class PostsComponent {
   private _service = inject(JsonPlaceHolderService);
