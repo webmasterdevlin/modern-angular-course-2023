@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { store } from 'src/app/store';
+import { store, totalObjects } from 'src/app/store';
 
 @Component({
   selector: 'app-footer',
@@ -7,13 +7,15 @@ import { store } from 'src/app/store';
   template: `
     <footer class="my-5 bg-white">
       <pre class="font-bold">
-users: {{ globalState().users.length }}, todos: {{ globalState().todos.length }}, posts: {{
-          globalState().posts.length
+users: {{ globalStore().users.length }}, todos: {{ globalStore().todos.length }}, posts: {{
+          globalStore().posts.length
         }}</pre
       >
+      <pre>combined posts and todos: {{ total() }}</pre>
     </footer>
   `,
 })
 export class FooterComponent {
-  globalState = store;
+  globalStore = store;
+  total = totalObjects;
 }

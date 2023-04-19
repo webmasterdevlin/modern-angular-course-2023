@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import axios from 'axios';
 import { store } from '../store';
 import { JsonPlaceHolderService } from '../services/json-place-holder.service';
 import { User } from '../models';
