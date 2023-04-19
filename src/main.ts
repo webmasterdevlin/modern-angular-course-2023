@@ -1,7 +1,8 @@
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { JsonPlaceHolderService } from './app/services/json-place-holder.service';
+import {importProvidersFrom} from "@angular/core";
+import {ReactiveFormsModule} from "@angular/forms";
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -27,6 +28,6 @@ bootstrapApplication(AppComponent, {
         redirectTo: '',
       },
     ]),
-    { provide: JsonPlaceHolderService, useClass: JsonPlaceHolderService },
+    // { provide: SampleService, useClass: SampleService },
   ],
 }).catch(err => console.error(err));

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { SharedModule } from '../shared.module';
 import { Router } from '@angular/router';
 import { store } from 'src/app/store';
@@ -18,13 +18,14 @@ import { MenuComponent } from './menu.component';
   `,
 })
 export class NavBarComponent {
-  constructor(private router: Router) {}
+  private _router = inject(Router);
   globalState = store;
+
   ngOnInit(): void {
     console.log('NavBarComponent');
   }
 
   to(url: string) {
-    this.router.navigateByUrl(url);
+    this._router.navigateByUrl(url);
   }
 }
