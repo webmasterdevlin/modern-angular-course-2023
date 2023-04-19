@@ -9,7 +9,6 @@ import { Todo } from '../models';
   selector: 'app-todos',
   standalone: true,
   imports: [SharedModule],
-  providers: [JsonPlaceHolderService],
   template: ` <p>todos works!</p> `,
 })
 export class TodosComponent {

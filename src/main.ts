@@ -1,37 +1,32 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app/app.component';
-import { RouterModule, Routes, provideRouter } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { JsonPlaceHolderService } from './app/services/json-place-holder.service';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter([
       {
         path: '',
-        redirectTo: 'users',
-        pathMatch: 'full',
+        loadComponent: () => import('./app/pages/home.component').then(m => m.HomeComponent),
       },
       {
         path: 'users',
-        loadComponent: () =>
-          import('./app/pages/users.component').then((m) => m.UsersComponent),
+        loadComponent: () => import('./app/pages/users.component').then(m => m.UsersComponent),
       },
       {
         path: 'posts',
-        loadComponent: () =>
-          import('./app/pages/posts.component').then((m) => m.PostsComponent),
+        loadComponent: () => import('./app/pages/posts.component').then(m => m.PostsComponent),
       },
       {
         path: 'todos',
-        loadComponent: () =>
-          import('./app/pages/todos.component').then((m) => m.TodosComponent),
+        loadComponent: () => import('./app/pages/todos.component').then(m => m.TodosComponent),
       },
       {
         path: '**',
         redirectTo: '',
       },
     ]),
+    { provide: JsonPlaceHolderService, useClass: JsonPlaceHolderService },
   ],
-}).catch((err) => console.error(err));
+}).catch(err => console.error(err));

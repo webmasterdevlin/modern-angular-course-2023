@@ -9,7 +9,6 @@ import { User } from '../models';
   selector: 'app-users',
   standalone: true,
   imports: [SharedModule],
-  providers: [JsonPlaceHolderService],
   template: ` <p>users works!</p> `,
 })
 export class UsersComponent {

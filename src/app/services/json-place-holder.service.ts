@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { api } from '../configs/axiosConfig';
-import type { EndPointsKeys } from '../configs/axiosConfig';
+import { api } from '../configs/axios.config';
+import type { EndPointsKeys } from '../configs/axios.config';
 
 @Injectable()
 export class JsonPlaceHolderService {

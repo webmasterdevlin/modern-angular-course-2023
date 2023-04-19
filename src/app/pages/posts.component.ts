@@ -8,7 +8,6 @@ import { Post } from '../models';
   selector: 'app-posts',
   standalone: true,
   imports: [SharedModule],
-  providers: [JsonPlaceHolderService],
   template: ` <p>posts works!</p> `,
 })
 export class PostsComponent {
