@@ -1,8 +1,9 @@
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
-import {importProvidersFrom} from "@angular/core";
-import {ReactiveFormsModule} from "@angular/forms";
+import { importProvidersFrom } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LocalStorageService } from './utilities/local-storage.service';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -28,6 +29,6 @@ bootstrapApplication(AppComponent, {
         redirectTo: '',
       },
     ]),
-    // { provide: SampleService, useClass: SampleService },
+    { provide: LocalStorageService, useClass: LocalStorageService },
   ],
 }).catch(err => console.error(err));

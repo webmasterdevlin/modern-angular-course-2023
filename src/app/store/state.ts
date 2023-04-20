@@ -1,4 +1,4 @@
-import { signal } from '@angular/core';
+import {effect, signal} from '@angular/core';
 import { Post, Todo, User } from '../models';
 
 export type StoreType = {
