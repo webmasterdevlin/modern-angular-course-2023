@@ -23,7 +23,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test('Should get list of posts', async ({ page }) => {
+test('Should be able to send a post request', async ({ page }) => {
   await page.goto('http://localhost:4200/');
   await page.getByRole('button', { name: 'posts 0' }).click();
   await page.locator('#title').click();
