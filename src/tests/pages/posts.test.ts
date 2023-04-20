@@ -24,19 +24,13 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Should get list of posts', async ({ page }) => {
-  await page.goto('/posts');
-  const row1 = page.getByText('Posts Works!');
-  await expect(row1).toBeVisible();
+  await page.goto('http://localhost:4200/');
+  await page.getByRole('button', { name: 'posts 0' }).click();
+  await page.locator('#title').click();
+  await page.locator('#title').fill('test title');
+  await page.locator('#title').press('Tab');
+  await page.locator('#body').fill('test body');
+  await page.getByRole('button', { name: 'Submit' }).click();
 
-  // const titleField = page.locator('#title');
-  // const bodyField = page.locator('#body');
-  // const submit = page.locator('button', { hasText: 'submit' });
-  // await expect(titleField).toBeVisible();
-  // await expect(bodyField).toBeVisible();
-  // await expect(submit).toBeVisible();
-
-  // await titleField.fill('test title');
-  // await bodyField.fill('test body');
-
-  // await Promise.all([page.getByText('test title'), submit.click()]);
+  await expect(page.getByTestId('post-title')).toHaveCount(3);
 });

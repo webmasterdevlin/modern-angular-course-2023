@@ -20,7 +20,7 @@ import { FormBuilder, FormGroupDirective, ReactiveFormsModule, Validators } from
     </form>
     <ul>
       <li *ngFor="let post of globalState().posts.reverse()">
-        <h3>{{ post.title }}</h3>
+        <h3 data-testid="post-title">{{ post.title }}</h3>
       </li>
     </ul>
   </section>`,
