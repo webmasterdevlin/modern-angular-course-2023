@@ -48,6 +48,9 @@ devDependencies:
   '@angular/compiler-cli':
     specifier: ^16.0.0-rc.1
     version: 16.0.0-rc.1(@angular/compiler@16.0.0-rc.1)(typescript@5.0.4)
+  '@playwright/test':
+    specifier: ^1.32.3
+    version: 1.32.3
   '@tailwindcss/aspect-ratio':
     specifier: ^0.4.2
     version: 0.4.2(tailwindcss@3.3.1)
@@ -84,6 +87,9 @@ devDependencies:
   postcss:
     specifier: ^8.4.22
     version: 8.4.22
+  prettier:
+    specifier: ^2.8.7
+    version: 2.8.7
   prettier-plugin-tailwindcss:
     specifier: ^0.2.7
     version: 0.2.7(prettier@2.8.7)
@@ -2040,6 +2046,17 @@ packages:
     transitivePeerDependencies:
       - bluebird
       - supports-color
+    dev: true
+
+  /@playwright/test@1.32.3:
+    resolution: {integrity: sha512-BvWNvK0RfBriindxhLVabi8BRe3X0J9EVjKlcmhxjg4giWBD/xleLcg2dz7Tx0agu28rczjNIPQWznwzDwVsZQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.15.11
+      playwright-core: 1.32.3
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /@schematics/angular@16.0.0-rc.0:
@@ -5561,6 +5578,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: true
+
+  /playwright-core@1.32.3:
+    resolution: {integrity: sha512-SB+cdrnu74ZIn5Ogh/8278ngEh9NEEV0vR4sJFmK04h2iZpybfbqBY0bX6+BLYWVdV12JLLI+JEFtSnYgR+mWg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /postcss-import@14.1.0(postcss@8.4.22):

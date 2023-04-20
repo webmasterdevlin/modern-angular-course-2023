@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "playwright test",
+    "test.debug": "playwright test --debug",
+    "test.codegen": "npx playwright codegen http://localhost:4200"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +29,7 @@
     "@angular-devkit/build-angular": "^16.0.0-rc.0",
     "@angular/cli": "~16.0.0-rc.0",
     "@angular/compiler-cli": "^16.0.0-rc.1",
+    "@playwright/test": "^1.32.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
@@ -39,6 +42,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "postcss": "^8.4.22",
+    "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.7",
     "tailwindcss": "^3.3.1",
     "typescript": "~5.0.4"

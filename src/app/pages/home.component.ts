@@ -8,6 +8,7 @@ import { store } from '../store';
   imports: [SharedModule],
   template: `
     <section>
+      <h2>home</h2>
       <div>users left: {{ globalState().users.length }}</div>
       <div>todos left: {{ globalState().todos.length }}</div>
       <div>posts left: {{ globalState().posts.length }}</div>
