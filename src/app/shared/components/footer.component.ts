@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { store, totalObjects } from 'src/app/store';
+import { totalObjects, store } from 'src/app/store';
 
 @Component({
   selector: 'app-footer',

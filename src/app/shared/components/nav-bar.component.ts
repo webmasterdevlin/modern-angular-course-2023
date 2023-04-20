@@ -1,6 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
-import { SharedModule } from '../shared.module';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedModule } from '../shared.module';
 import { store } from 'src/app/store';
 import { MenuComponent } from './menu.component';
 
