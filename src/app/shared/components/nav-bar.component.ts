@@ -21,10 +21,6 @@ export class NavBarComponent {
   store = this.stateService.store;
   private _router = inject(Router);
 
-  ngOnInit(): void {
-    console.log('NavBarComponent');
-  }
-
   async to(url: string) {
     await this._router.navigateByUrl(url);
   }
