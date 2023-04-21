@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { StateService } from '../store/state.service';
+import { State } from '../store';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +15,6 @@ import { StateService } from '../store/state.service';
   `,
 })
 export class HomeComponent {
-  stateService = inject(StateService);
+  stateService = inject(State);
   store = this.stateService.store;
 }

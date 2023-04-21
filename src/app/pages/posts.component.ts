@@ -4,8 +4,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SharedModule } from '../shared/shared.module';
 import { Post } from '../models';
 import { combineLatestWith, debounceTime, distinctUntilChanged } from 'rxjs';
-import { StateService } from '../store/state.service';
-import { ActionsService } from '../store/actions.service';
+import { Actions, State } from '../store';
 
 @UntilDestroy()
 @Component({
@@ -31,9 +30,9 @@ import { ActionsService } from '../store/actions.service';
 })
 export class PostsComponent implements OnInit {
   content = '';
-  private _stateService = inject(StateService);
+  private _stateService = inject(State);
   store = this._stateService.store; // NOTE: Don't do this._stateService.store()
-  private _actionsService = inject(ActionsService);
+  private _actionsService = inject(Actions);
   private _formBuilder = inject(FormBuilder);
   postForm = this._formBuilder.group({
     userId: [0],

@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { ActionsService } from '../store/actions.service';
-import { StateService } from '../store/state.service';
+import { Actions, State } from '../store';
 
 @Component({
   selector: 'app-todos',
@@ -18,9 +17,9 @@ import { StateService } from '../store/state.service';
   `,
 })
 export class TodosComponent implements OnInit {
-  private _stateService = inject(StateService);
+  private _stateService = inject(State);
   store = this._stateService.store; // NOTE: Don't do this._stateService.store()
-  private _actionsService = inject(ActionsService);
+  private _actionsService = inject(Actions);
   async ngOnInit() {
     await this._actionsService.fetchTodos();
   }

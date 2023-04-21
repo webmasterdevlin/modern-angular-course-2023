@@ -2,14 +2,14 @@ import { effect, inject, Injectable } from '@angular/core';
 import { Post, Todo } from '../models';
 import { HttpService } from '../services/http.service';
 import { LocalStorageService } from '../utilities/local-storage.service';
-import { StateService } from './state.service';
+import { State } from './';
 
 @Injectable()
-export class ActionsService {
+export class Actions {
   key = 'store';
   private _httpService = inject(HttpService);
   private _localStorageService = inject(LocalStorageService);
-  private _stateService = inject(StateService);
+  private _stateService = inject(State);
   constructor() {
     effect(() => this._localStorageService.setItem(this.key, this._stateService.store()));
   }

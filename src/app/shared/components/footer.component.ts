@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { GettersService } from '../../store/getters.service';
-import { StateService } from '../../store/state.service';
+import { Getters, State } from '../../store';
 
 @Component({
   selector: 'app-footer',
@@ -13,8 +12,8 @@ import { StateService } from '../../store/state.service';
   `,
 })
 export class FooterComponent {
-  stateService = inject(StateService);
+  stateService = inject(State);
   store = this.stateService.store;
-  private _gettersService = inject(GettersService);
+  private _gettersService = inject(Getters);
   total = this._gettersService.totalObjects();
 }

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedModule } from '../shared.module';
 import { MenuComponent } from './menu.component';
-import { StateService } from '../../store/state.service';
+import { State } from '../../store';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +17,7 @@ import { StateService } from '../../store/state.service';
   `,
 })
 export class NavBarComponent {
-  stateService = inject(StateService);
+  stateService = inject(State);
   store = this.stateService.store;
   private _router = inject(Router);
 

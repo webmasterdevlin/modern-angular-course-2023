@@ -3,7 +3,7 @@ import { Post, Todo } from '../models';
 import { LocalStorageService } from '../utilities/local-storage.service';
 
 @Injectable()
-export class StateService {
+export class State {
   key = 'store';
   store = signal<StoreType>(initialStoreState);
   private _localStorageService = inject(LocalStorageService);

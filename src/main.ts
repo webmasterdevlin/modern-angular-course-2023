@@ -3,9 +3,7 @@ import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { LocalStorageService } from './app/utilities/local-storage.service';
 import { HttpService } from './app/services/http.service';
-import { ActionsService } from './app/store/actions.service';
-import { GettersService } from './app/store/getters.service';
-import { StateService } from './app/store/state.service';
+import { Actions, Getters, State } from './app/store';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -29,8 +27,8 @@ bootstrapApplication(AppComponent, {
     ]),
     { provide: LocalStorageService, useClass: LocalStorageService },
     { provide: HttpService, useClass: HttpService },
-    { provide: ActionsService, useClass: ActionsService },
-    { provide: GettersService, useClass: GettersService },
-    { provide: StateService, useClass: StateService },
+    { provide: Actions, useClass: Actions },
+    { provide: Getters, useClass: Getters },
+    { provide: State, useClass: State },
   ],
 }).catch(err => console.error(err));
