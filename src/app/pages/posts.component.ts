@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SharedModule } from '../shared/shared.module';
-import { store } from '../store';
 import { Post } from '../models';
-import { getAxios, postAxios } from '../services/generic.service';
 import { combineLatestWith, debounceTime, distinctUntilChanged } from 'rxjs';
+import { StateService } from '../store/state.service';
+import { ActionsService } from '../store/actions.service';
 
 @UntilDestroy()
 @Component({
@@ -23,38 +23,36 @@ import { combineLatestWith, debounceTime, distinctUntilChanged } from 'rxjs';
     </form>
     <h3 class="my-100 text-indigo-900">{{ content }}</h3>
     <ul>
-      <li *ngFor="let post of globalState().posts.reverse()">
+      <li *ngFor="let post of store().posts.reverse()">
         <h3 data-testid="post-title">{{ post.title }}</h3>
       </li>
     </ul>
   </section>`,
 })
-export class PostsComponent {
-  private _formBuilder = inject(FormBuilder);
-  globalState = store;
+export class PostsComponent implements OnInit {
   content = '';
-
+  private _stateService = inject(StateService);
+  store = this._stateService.store; // NOTE: Don't do this._stateService.store()
+  private _actionsService = inject(ActionsService);
+  private _formBuilder = inject(FormBuilder);
   postForm = this._formBuilder.group({
     userId: [0],
     title: ['', [Validators.required]],
     body: ['', [Validators.required]],
   });
 
-  async handleSubmitPost() {
-    this.postForm.value.userId = 1;
-    const { data } = await postAxios<Post>('posts', this.postForm.value as Post);
-    store.set({ ...store(), posts: [...store().posts, data] });
-    this.postForm.reset();
-  }
-
   async ngOnInit() {
-    const { data } = await getAxios<Post[]>('posts');
-    store.set({ ...store(), posts: data });
-
+    await this._actionsService.fetchPosts();
     this.watchForm();
   }
 
-  // below is a use case for RxJS
+  async handleSubmitPost() {
+    this.postForm.value.userId = 1;
+    await this._actionsService.createPost(this.postForm.value as Post);
+    this.postForm.reset();
+  }
+
+  // NOTE: Below is a use case for RxJS
   private watchForm() {
     this.postForm
       .get('title')

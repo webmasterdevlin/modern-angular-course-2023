@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   // mock heroes http request
-  await page.route('**/posts', (route: any) => {
+  await page.route('**/posts?_start=0&_limit=10', (route: any) => {
     route.fulfill({
       status: 200,
       body: JSON.stringify([

@@ -1,21 +1,20 @@
-import { Component } from '@angular/core';
-import { totalObjects, store } from 'src/app/store';
+import { Component, inject } from '@angular/core';
+import { GettersService } from '../../store/getters.service';
+import { StateService } from '../../store/state.service';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   template: `
     <footer class="my-5 bg-white">
-      <pre class="font-bold">
-users: {{ globalStore().users.length }}, todos: {{ globalStore().todos.length }}, posts: {{
-          globalStore().posts.length
-        }}</pre
-      >
-      <pre>combined posts and todos: {{ total() }}</pre>
+      <pre class="font-bold">todos: {{ store().todos.length }}, posts: {{ store().posts.length }}</pre>
+      <pre>combined posts and todos: {{ total }}</pre>
     </footer>
   `,
 })
 export class FooterComponent {
-  globalStore = store;
-  total = totalObjects;
+  stateService = inject(StateService);
+  store = this.stateService.store;
+  private _gettersService = inject(GettersService);
+  total = this._gettersService.totalObjects();
 }
