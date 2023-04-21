@@ -19,7 +19,9 @@ export class Actions {
     try {
       const { data } = await this._httpService.get<Todo[]>('todos');
       this._stateService.store.update(store => ({ ...store, todos: data }));
-    } catch (e) {}
+    } catch (e) {
+      console.log(e);
+    }
     this._stateService.store.update(store => ({ ...store, loading: false }));
   }
 
@@ -27,14 +29,22 @@ export class Actions {
     this._stateService.store.update(store => ({ ...store, loading: true }));
     try {
       const { data } = await this._httpService.get<Post[]>('posts');
-      this._stateService.store.set({ ...this._stateService.store(), posts: data });
-    } catch (e) {}
+      this._stateService.store.update(store => ({ ...store, posts: data }));
+    } catch (e) {
+      console.log(e);
+    }
     this._stateService.store.update(store => ({ ...store, loading: false }));
   }
 
   async createPost(value: Post) {
-    const { data } = await this._httpService.post<Post>('posts', value);
-    this._stateService.store.mutate(state => state.posts.push(data));
+    this._stateService.store.update(store => ({ ...store, loading: true }));
+    try {
+      const { data } = await this._httpService.post<Post>('posts', value);
+      this._stateService.store.mutate(state => state.posts.push(data));
+    } catch (e) {
+      console.log(e);
+    }
+    this._stateService.store.update(store => ({ ...store, loading: false }));
   }
 
   async removeTodoById(id: number) {
