@@ -1,5 +1,4 @@
 # ModernAngular
-- Less is more. This is the motto of this demo app. In return, building Angular apps for beginners will be easier.
 - Global state management using Signals.
 - HTTP Requests using Axios and Signals.
 - Reactive Forms using RXJS.
