@@ -1,9 +1,11 @@
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { importProvidersFrom } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { LocalStorageService } from './utilities/local-storage.service';
+import { LocalStorageService } from './app/utilities/local-storage.service';
+import { HttpService } from './app/services/http.service';
+import { ActionsService } from './app/store/actions.service';
+import { GettersService } from './app/store/getters.service';
+import { StateService } from './app/store/state.service';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -11,10 +13,6 @@ bootstrapApplication(AppComponent, {
       {
         path: '',
         loadComponent: () => import('./app/pages/home.component').then(m => m.HomeComponent),
-      },
-      {
-        path: 'users',
-        loadComponent: () => import('./app/pages/users.component').then(m => m.UsersComponent),
       },
       {
         path: 'posts',
@@ -30,5 +28,9 @@ bootstrapApplication(AppComponent, {
       },
     ]),
     { provide: LocalStorageService, useClass: LocalStorageService },
+    { provide: HttpService, useClass: HttpService },
+    { provide: ActionsService, useClass: ActionsService },
+    { provide: GettersService, useClass: GettersService },
+    { provide: StateService, useClass: StateService },
   ],
 }).catch(err => console.error(err));

@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { store } from '../store';
+import { StateService } from '../store/state.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,12 @@ import { store } from '../store';
   template: `
     <section>
       <h2>home</h2>
-      <div>users left: {{ globalState().users.length }}</div>
-      <div>todos left: {{ globalState().todos.length }}</div>
-      <div>posts left: {{ globalState().posts.length }}</div>
+      <div>todos left: {{ store().todos.length }}</div>
+      <div>posts left: {{ store().posts.length }}</div>
     </section>
   `,
 })
 export class HomeComponent {
-  globalState = store;
+  stateService = inject(StateService);
+  store = this.stateService.store;
 }
