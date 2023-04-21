@@ -1,7 +1,7 @@
 # ModernAngular
 - Global state management using Signals.
 - HTTP Requests using Axios and Signals.
-- Reactive Forms using RXJS.
+- RXJS in ReactiveForms only
 - Stand-alone components all the way.
 - LocalStorage in Signals to persist data.
 
