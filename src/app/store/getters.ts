@@ -1,7 +1,9 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { State } from './';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class Getters {
   private _stateService = inject(State);
 

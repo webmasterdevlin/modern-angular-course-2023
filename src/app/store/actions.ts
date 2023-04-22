@@ -4,7 +4,9 @@ import { HttpService } from '../services/http.service';
 import { LocalStorageService } from '../utilities/local-storage.service';
 import { State } from './';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class Actions {
   key = 'store';
   private _httpService = inject(HttpService);

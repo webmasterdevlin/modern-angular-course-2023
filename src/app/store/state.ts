@@ -2,7 +2,9 @@ import { effect, inject, Injectable, signal } from '@angular/core';
 import { Post, Todo } from '../models';
 import { LocalStorageService } from '../utilities/local-storage.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class State {
   key = 'store';
   store = signal<StoreType>(initialStoreState);

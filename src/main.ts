@@ -25,10 +25,6 @@ bootstrapApplication(AppComponent, {
         redirectTo: '',
       },
     ]),
-    { provide: LocalStorageService, useClass: LocalStorageService },
-    { provide: HttpService, useClass: HttpService },
-    { provide: Actions, useClass: Actions },
-    { provide: Getters, useClass: Getters },
-    { provide: State, useClass: State },
+    { provide: LocalStorageService, useClass: LocalStorageService }, // providedIn: 'root', can also be used
   ],
 }).catch(err => console.error(err));

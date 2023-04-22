@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { api, EndPointsKeys } from '../configs/axios.config';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class HttpService {
   async get<T>(endpoint: EndPointsKeys) {
     return await api.get<T>(`${endpoint}?_start=0&_limit=10`);
