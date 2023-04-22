@@ -12,6 +12,7 @@ export class State {
     const localStore = this._localStorageService.getItem(this.key);
     if (localStore) this.store.set(localStore);
 
+    // the effect can only be used inside a constructor
     effect(() => this._localStorageService.setItem(this.key, this.store()));
   }
 }

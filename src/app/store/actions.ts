@@ -10,10 +10,12 @@ export class Actions {
   private _httpService = inject(HttpService);
   private _localStorageService = inject(LocalStorageService);
   private _stateService = inject(State);
+
   constructor() {
     effect(() => this._localStorageService.setItem(this.key, this._stateService.store()));
   }
 
+  // with side effect because this is with asynchronous call
   async fetchTodos() {
     this._stateService.store.update(store => ({ ...store, loading: true }));
     try {
@@ -47,6 +49,7 @@ export class Actions {
     this._stateService.store.update(store => ({ ...store, loading: false }));
   }
 
+  // with no side effect because this has no asynchronous call
   async removeTodoById(id: number) {
     this._stateService.store.mutate(state => (state.todos = state.todos.filter(t => t.id !== id)));
   }

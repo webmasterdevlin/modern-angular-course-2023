@@ -18,8 +18,10 @@ import { Actions, State } from '../store';
 })
 export class TodosComponent implements OnInit {
   private _stateService = inject(State);
-  store = this._stateService.store; // NOTE: Don't do this._stateService.store()
   private _actionsService = inject(Actions);
+
+  store = this._stateService.store; // NOTE: Don't do this._stateService.store(). Reactivity will be lost.
+
   async ngOnInit() {
     await this._actionsService.fetchTodos();
   }
