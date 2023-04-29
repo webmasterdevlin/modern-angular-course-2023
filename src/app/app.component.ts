@@ -9,7 +9,7 @@ import { FooterComponent } from './shared/components/footer.component';
   imports: [NavBarComponent, RouterModule, FooterComponent],
   template: `
     <app-nav-bar></app-nav-bar>
-    <div class="container mx-auto">
+    <div class="container prose mx-auto">
       <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
