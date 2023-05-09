@@ -16,6 +16,6 @@ describe('TodosComponent', () => {
     const fixture = TestBed.createComponent(TodosComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelectorAll('todo-title')?.length).toBe(2);
+    expect(compiled.querySelector('h2')?.textContent).toContain('loading..');
   });
 });

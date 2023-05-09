@@ -8,7 +8,6 @@ import { Actions, State } from '../store';
   imports: [SharedModule],
   template: `
     <h2>{{ store().loading ? 'loading..' : 'Todos Works!' }}</h2>
-    <span data-testid="todo-title" class="mr-5">haha</span>
     <ul>
       <li *ngFor="let todo of store().todos">
         <span data-testid="todo-title" class="mr-5">{{ todo.title }}</span>

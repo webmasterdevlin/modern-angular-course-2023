@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'modern-angular',
+  displayName: 'app',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: './coverage/app',

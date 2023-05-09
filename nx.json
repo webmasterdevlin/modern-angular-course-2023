@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "modern-angular",
+  "npmScope": "app",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -54,5 +54,5 @@
       "style": "css"
     }
   },
-  "defaultProject": "modern-angular"
+  "defaultProject": "app"
 }
