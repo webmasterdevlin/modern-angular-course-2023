@@ -14,7 +14,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MenuComponent {
   @Input()
-  label: string = 'default label';
+  label = 'default label';
 
   @Input()
   counter: number | null = null;

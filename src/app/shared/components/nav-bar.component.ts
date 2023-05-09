@@ -11,8 +11,16 @@ import { State } from '../../store';
   template: `
     <nav>
       <app-menu [label]="'home'" (handleClick)="to('/')"></app-menu>
-      <app-menu [label]="'todos'" [counter]="store().todos.length" (handleClick)="to('todos')"></app-menu>
-      <app-menu [label]="'posts'" [counter]="store().posts.length" (handleClick)="to('posts')"></app-menu>
+      <app-menu
+        [label]="'todos'"
+        [counter]="store().todos.length"
+        (handleClick)="to('todos')"
+      ></app-menu>
+      <app-menu
+        [label]="'posts'"
+        [counter]="store().posts.length"
+        (handleClick)="to('posts')"
+      ></app-menu>
     </nav>
   `,
 })

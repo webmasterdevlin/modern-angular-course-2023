@@ -4,7 +4,7 @@ export const api = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/',
 });
 
-api.interceptors.request.use(config => {
+api.interceptors.request.use((config) => {
   // do something before request is sent
   return config;
 });

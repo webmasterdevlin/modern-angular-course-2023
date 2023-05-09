@@ -8,7 +8,8 @@ import { AppComponent } from './app/app.component';
 import { LocalStorageService } from './app/utilities/local-storage.service';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
+  providers: [
+    provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
     { provide: LocalStorageService, useClass: LocalStorageService }, // providedIn: 'root', can also be used],
   ],
 }).catch((err) => console.error(err));

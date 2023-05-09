@@ -14,45 +14,73 @@ export class Actions {
   private _stateService = inject(State);
 
   constructor() {
-    effect(() => this._localStorageService.setItem(this.key, this._stateService.store()));
+    effect(() =>
+      this._localStorageService.setItem(this.key, this._stateService.store())
+    );
   }
 
   // with side effect because this is with asynchronous call
   async fetchTodos() {
-    this._stateService.store.update(store => ({ ...store, loading: true }));
+    this._stateService.store.update((store) => ({
+      ...store,
+      loading: true,
+      error: '',
+    }));
     try {
       const { data } = await this._httpService.get<Todo[]>('todos');
-      this._stateService.store.update(store => ({ ...store, todos: data }));
-    } catch (e) {
+      this._stateService.store.update((store) => ({ ...store, todos: data }));
+    } catch (e: any) {
       console.log(e);
+      this._stateService.store.update((store) => ({
+        ...store,
+        error: e.message,
+      }));
     }
-    this._stateService.store.update(store => ({ ...store, loading: false }));
+    this._stateService.store.update((store) => ({ ...store, loading: false }));
   }
 
   async fetchPosts() {
-    this._stateService.store.update(store => ({ ...store, loading: true }));
+    this._stateService.store.update((store) => ({
+      ...store,
+      loading: true,
+      error: '',
+    }));
     try {
       const { data } = await this._httpService.get<Post[]>('posts');
-      this._stateService.store.update(store => ({ ...store, posts: data }));
-    } catch (e) {
+      this._stateService.store.update((store) => ({ ...store, posts: data }));
+    } catch (e: any) {
       console.log(e);
+      this._stateService.store.update((store) => ({
+        ...store,
+        error: e.message,
+      }));
     }
-    this._stateService.store.update(store => ({ ...store, loading: false }));
+    this._stateService.store.update((store) => ({ ...store, loading: false }));
   }
 
   async createPost(value: Post) {
-    this._stateService.store.update(store => ({ ...store, loading: true }));
+    this._stateService.store.update((store) => ({
+      ...store,
+      loading: true,
+      error: '',
+    }));
     try {
       const { data } = await this._httpService.post<Post>('posts', value);
-      this._stateService.store.mutate(state => state.posts.push(data));
-    } catch (e) {
+      this._stateService.store.mutate((state) => state.posts.push(data));
+    } catch (e: any) {
       console.log(e);
+      this._stateService.store.update((store) => ({
+        ...store,
+        error: e.message,
+      }));
     }
-    this._stateService.store.update(store => ({ ...store, loading: false }));
+    this._stateService.store.update((store) => ({ ...store, loading: false }));
   }
 
   // with no side effect because this has no asynchronous call
   async removeTodoById(id: number) {
-    this._stateService.store.mutate(state => (state.todos = state.todos.filter(t => t.id !== id)));
+    this._stateService.store.mutate(
+      (state) => (state.todos = state.todos.filter((t) => t.id !== id))
+    );
   }
 }

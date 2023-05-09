@@ -8,10 +8,13 @@ import { Actions, State } from '../store';
   imports: [SharedModule],
   template: `
     <h2>{{ store().loading ? 'loading..' : 'Todos Works!' }}</h2>
+    <span data-testid="todo-title" class="mr-5">haha</span>
     <ul>
       <li *ngFor="let todo of store().todos">
         <span data-testid="todo-title" class="mr-5">{{ todo.title }}</span>
-        <button class="text-red-400" (click)="handleRemoveTodoById(todo.id)">done</button>
+        <button class="text-red-400" (click)="handleRemoveTodoById(todo.id)">
+          done
+        </button>
       </li>
     </ul>
   `,
@@ -26,5 +29,6 @@ export class TodosComponent implements OnInit {
     await this._actionsService.fetchTodos();
   }
 
-  handleRemoveTodoById = (id: number) => this._actionsService.removeTodoById(id);
+  handleRemoveTodoById = (id: number) =>
+    this._actionsService.removeTodoById(id);
 }

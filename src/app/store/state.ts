@@ -21,12 +21,14 @@ export class State {
 
 export interface StoreType {
   loading: boolean;
+  error: string;
   todos: Todo[];
   posts: Post[];
 }
 
 const initialStoreState: StoreType = {
   loading: false,
+  error: '',
   todos: [],
   posts: [],
 };

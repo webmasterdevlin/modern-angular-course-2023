@@ -6,7 +6,9 @@ import { Getters, State } from '../../store';
   standalone: true,
   template: `
     <footer class="my-5 bg-white">
-      <pre class="font-bold">todos: {{ store().todos.length }}, posts: {{ store().posts.length }}</pre>
+      <pre class="font-bold">
+todos: {{ store().todos.length }}, posts: {{ store().posts.length }}</pre
+      >
       <pre>combined posts and todos: {{ total }}</pre>
     </footer>
   `,

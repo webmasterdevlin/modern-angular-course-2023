@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "test.e2e": "nx e2e e2e"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +47,7 @@
     "@nx/web": "16.0.3",
     "@nx/workspace": "16.0.3",
     "@schematics/angular": "~16.0.0",
+    "@testing-library/cypress": "^9.0.0",
     "@types/jest": "^29.5.1",
     "@types/node": "18.16.3",
     "@typescript-eslint/eslint-plugin": "^5.59.2",

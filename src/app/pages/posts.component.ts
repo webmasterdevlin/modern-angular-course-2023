@@ -53,17 +53,21 @@ export class PostsComponent implements OnInit {
 
   // NOTE: Below is a use case for RxJS
   private watchForm() {
-    this.postForm
-      .get('title')
-      ?.valueChanges.pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        combineLatestWith(this.postForm.get('body')?.valueChanges!),
-        untilDestroyed(this),
-      )
-      .subscribe(([title, body]) => {
-        if (title && body) this.content = `${title}: "${body}"`;
-        else this.content = '';
-      });
+    const bodyValueChanges = this.postForm.get('body')?.valueChanges;
+
+    if (bodyValueChanges) {
+      this.postForm
+        .get('title')
+        ?.valueChanges.pipe(
+          debounceTime(1000),
+          distinctUntilChanged(),
+          combineLatestWith(bodyValueChanges),
+          untilDestroyed(this)
+        )
+        .subscribe(([title, body]) => {
+          if (title && body) this.content = `${title}: "${body}"`;
+          else this.content = '';
+        });
+    }
   }
 }

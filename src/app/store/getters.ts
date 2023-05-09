@@ -7,5 +7,9 @@ import { State } from './';
 export class Getters {
   private _stateService = inject(State);
 
-  totalObjects = computed(() => this._stateService.store().todos.length + this._stateService.store().posts.length);
+  totalObjects = computed(
+    () =>
+      this._stateService.store().todos.length +
+      this._stateService.store().posts.length
+  );
 }
