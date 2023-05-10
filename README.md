@@ -16,8 +16,8 @@ pnpx create-nx-workspace@latest
 ### Cypress additional set up
 
 ```bash
-pnpm add - D @testing-library/cypress
+pnpm add -D @testing-library/cypress
 ```
 
-- update "types": ["cypress", "node", "@testing-library/cypress"], to tsconfig.json
-- add import '@testing-library/cypress/add-commands'; to cypress/support/commands.ts
+- update -> "types": ["cypress", "node", "@testing-library/cypress"], to tsconfig.json
+- add -> import '@testing-library/cypress/add-commands'; to cypress/support/commands.ts
