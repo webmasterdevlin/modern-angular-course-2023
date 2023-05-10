@@ -21,3 +21,31 @@ pnpm add -D @testing-library/cypress
 
 - update -> "types": ["cypress", "node", "@testing-library/cypress"], to tsconfig.json
 - add -> import '@testing-library/cypress/add-commands'; to cypress/support/commands.ts
+
+### Tailwind CSS Setup
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+- Add the paths to all of your template files in your tailwind.config.js file.
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{html,ts}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+- Add the @tailwind directives for each of Tailwind’s layers to your ./src/styles.css file.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
