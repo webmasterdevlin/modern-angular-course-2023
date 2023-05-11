@@ -13,8 +13,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
 })
 export class MenuComponent {
-  @Input()
-  label = 'default label';
+  @Input({ required: true })
+  label: string | null = null;
 
   @Input()
   counter: number | null = null;
