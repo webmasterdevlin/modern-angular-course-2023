@@ -9,7 +9,7 @@ pnpx create-nx-workspace@latest
 - choose standalone angular app
 - application name, app
 - standalone components, yes
-- routing, yes
+- routing, no
 - stylesheet format, css
 - caching, no
 
@@ -49,3 +49,40 @@ module.exports = {
 @tailwind components;
 @tailwind utilities;
 ```
+
+## Development Steps
+
+- run the application by running npm run start
+- create a directory name shared
+- generate shared.module.ts inside the shared directory
+- create a directory name pages
+- generate home.component.ts inside pages
+- generate posts.component.ts inside pages
+- generate todos.component.ts inside pages
+- create app.routes.ts
+- update main.ts
+- run the application
+- create configs/axios.config.ts
+- create services/http/service.ts
+- create store/state.ts
+- implement todos in store/state.ts
+- create store/actions.ts
+- implement todos in store/actions.ts
+- create store/index.ts for barrel imports
+- update todos.component
+- run the application
+- implement posts in store/state.ts
+- implement posts in store/actions.ts
+- update posts.component.ts
+- run the application
+- create store/getters.ts
+- implement computed for todos and posts in store/getters.ts
+- update store/index.ts
+- generate components/footer.component.ts
+- generate components/menu.component.ts
+- generate components/nav-bar.component.ts
+- run the application and check state gets lost
+- generate utilities/local-storage.service.ts
+- update store/actions.ts
+- update store/state.ts
+- run application and check localstorage in devtool
