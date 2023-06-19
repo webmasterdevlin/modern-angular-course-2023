@@ -6,7 +6,7 @@ import { FooterComponent } from './shared/components/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavBarComponent, RouterModule, FooterComponent],
+  imports: [RouterModule, NavBarComponent, FooterComponent],
   template: `
     <app-nav-bar></app-nav-bar>
     <div class="container prose mx-auto">
