@@ -12,7 +12,7 @@ import { Actions, State } from '../store';
   standalone: true,
   imports: [SharedModule],
   template: `<section>
-    <h2>Posts Works!!</h2>
+    <h1>Posts Works!</h1>
     <form [formGroup]="postForm" (ngSubmit)="handleSubmitPost()">
       <label for="title"></label>
       <input

@@ -8,7 +8,7 @@ import { State } from './state';
   providedIn: 'root',
 })
 export class Actions {
-  key = 'store';
+  private key = 'store';
   private _httpService = inject(HttpService);
   private _localStorageService = inject(LocalStorageService);
   private _stateService = inject(State);
@@ -21,66 +21,55 @@ export class Actions {
 
   // with side effect because this is with asynchronous call
   async fetchTodos() {
-    this._stateService.store.update((store) => ({
-      ...store,
-      loading: true,
-      error: '',
-    }));
+    this.enableLoading();
     try {
       const { data } = await this._httpService.get<Todo[]>('todos');
-      this._stateService.store.update((store) => ({ ...store, todos: data }));
+      this._stateService.store.mutate((store) => (store.todos = data));
     } catch (e: any) {
-      console.log(e);
-      this._stateService.store.update((store) => ({
-        ...store,
-        error: e.message,
-      }));
+      this.setError(e.message);
     }
-    this._stateService.store.update((store) => ({ ...store, loading: false }));
+    this.disableLoading();
   }
 
   async fetchPosts() {
-    this._stateService.store.update((store) => ({
-      ...store,
-      loading: true,
-      error: '',
-    }));
+    this.enableLoading();
     try {
       const { data } = await this._httpService.get<Post[]>('posts');
-      this._stateService.store.update((store) => ({ ...store, posts: data }));
+      this._stateService.store.mutate((store) => (store.posts = data));
     } catch (e: any) {
-      console.log(e);
-      this._stateService.store.update((store) => ({
-        ...store,
-        error: e.message,
-      }));
+      this.setError(e.message);
     }
-    this._stateService.store.update((store) => ({ ...store, loading: false }));
+    this.disableLoading();
   }
 
   // with no side effect because this has no asynchronous call
-  async removeTodoById(id: number) {
-    this._stateService.store.mutate(
-      (state) => (state.todos = state.todos.filter((t) => t.id !== id))
-    );
+  async removeTodoById(id: number, index: number) {
+    this._stateService.store.mutate((state) => state.todos.splice(index, 1));
   }
 
   async createPost(value: Post) {
-    this._stateService.store.update((store) => ({
-      ...store,
-      loading: true,
-      error: '',
-    }));
+    this.enableLoading();
     try {
       const { data } = await this._httpService.post<Post>('posts', value);
       this._stateService.store.mutate((state) => state.posts.push(data));
     } catch (e: any) {
-      console.log(e);
-      this._stateService.store.update((store) => ({
-        ...store,
-        error: e.message,
-      }));
+      this.setError(e.message);
     }
-    this._stateService.store.update((store) => ({ ...store, loading: false }));
+    this.disableLoading();
+  }
+
+  private enableLoading() {
+    this._stateService.store.mutate((state) => {
+      state.loading = true;
+      state.error = '';
+    });
+  }
+
+  private disableLoading() {
+    this._stateService.store.mutate((state) => (state.loading = false));
+  }
+
+  private setError(message: string) {
+    this._stateService.store.mutate((store) => (store.error = message));
   }
 }

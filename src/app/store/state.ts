@@ -6,9 +6,10 @@ import { LocalStorageService } from '../utilities/local-storage.service';
   providedIn: 'root',
 })
 export class State {
-  key = 'store';
-  store = signal<StoreType>(initialStoreState);
+  private key = 'store';
   private _localStorageService = inject(LocalStorageService);
+
+  store = signal<StoreType>(initialStoreState);
 
   constructor() {
     const localStore = this._localStorageService.getItem(this.key);
