@@ -1,5 +1,5 @@
 import { computed, inject, Injectable } from '@angular/core';
-import { State } from './';
+import { State } from './state';
 
 @Injectable({
   providedIn: 'root',

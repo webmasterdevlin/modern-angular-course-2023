@@ -2,7 +2,7 @@ import { effect, inject, Injectable } from '@angular/core';
 import { Post, Todo } from '../models';
 import { HttpService } from '../services/http.service';
 import { LocalStorageService } from '../utilities/local-storage.service';
-import { State } from './';
+import { State } from './state';
 
 @Injectable({
   providedIn: 'root',
