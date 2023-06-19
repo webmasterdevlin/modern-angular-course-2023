@@ -19,8 +19,8 @@ pnpx create-nx-workspace@latest
 pnpm add -D @testing-library/cypress
 ```
 
-- update -> "types": ["cypress", "node", "@testing-library/cypress"], to tsconfig.json
-- add -> import '@testing-library/cypress/add-commands'; to cypress/support/commands.ts
+- update -> "types": ["cypress", "node", "@testing-library/cypress"], in tsconfig.json
+- add -> import '@testing-library/cypress/add-commands'; in cypress/support/commands.ts
 
 ### Tailwind CSS Setup
 
