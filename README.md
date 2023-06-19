@@ -53,17 +53,18 @@ module.exports = {
 ## Development Steps
 
 - run the application by running npm run start
-- create a directory name shared
-- generate shared.module.ts inside the shared directory
+- generate a module name shared.module.ts
 - create a directory name pages
-- generate home.component.ts inside pages
-- generate posts.component.ts inside pages
-- generate todos.component.ts inside pages
-- create app.routes.ts
+- generate a standalone home component -> path is src/app/pages
+- generate a standalone posts component -> path is src/app/pages
+- generate a standalone todos component -> path is src/app/pages
+- create app/app.routes.ts
 - update main.ts
-- run the application
+- add router-outlet to app.component.ts
+- run the application and check all pages
 - create configs/axios.config.ts
-- create services/http/service.ts
+- generate a services/http.service.ts -> path is src/app/services
+- create models.ts
 - create store/state.ts
 - implement todos in store/state.ts
 - create store/actions.ts
@@ -74,15 +75,23 @@ module.exports = {
 - implement posts in store/state.ts
 - implement posts in store/actions.ts
 - update posts.component.ts
+- update home.component.ts
 - run the application
 - create store/getters.ts
 - implement computed for todos and posts in store/getters.ts
 - update store/index.ts
-- generate components/footer.component.ts
-- generate components/menu.component.ts
-- generate components/nav-bar.component.ts
+- generate components/footer.component.ts -> path is src/app/shared/components
+- generate components/menu.component.ts -> path is src/app/shared/components
+- generate components/nav-bar.component.ts -> path is src/app/shared/components
+- add footer and nav-bar to app.component.html
 - run the application and check state gets lost
 - generate utilities/local-storage.service.ts
 - update store/actions.ts
 - update store/state.ts
+- update the main.ts with localstorage service
 - run application and check localstorage in devtool
+- write tests helpers/compute
+- run jest tests
+- write e2e tests
+- update package.json with cypress
+- run e2e tests
