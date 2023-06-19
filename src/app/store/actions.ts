@@ -58,6 +58,13 @@ export class Actions {
     this._stateService.store.update((store) => ({ ...store, loading: false }));
   }
 
+  // with no side effect because this has no asynchronous call
+  async removeTodoById(id: number) {
+    this._stateService.store.mutate(
+      (state) => (state.todos = state.todos.filter((t) => t.id !== id))
+    );
+  }
+
   async createPost(value: Post) {
     this._stateService.store.update((store) => ({
       ...store,
@@ -75,12 +82,5 @@ export class Actions {
       }));
     }
     this._stateService.store.update((store) => ({ ...store, loading: false }));
-  }
-
-  // with no side effect because this has no asynchronous call
-  async removeTodoById(id: number) {
-    this._stateService.store.mutate(
-      (state) => (state.todos = state.todos.filter((t) => t.id !== id))
-    );
   }
 }
