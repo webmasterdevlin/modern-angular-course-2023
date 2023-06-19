@@ -15,10 +15,22 @@ import { Actions, State } from '../store';
     <h2>Posts Works!!</h2>
     <form [formGroup]="postForm" (ngSubmit)="handleSubmitPost()">
       <label for="title"></label>
-      <input type="text" id="title" formControlName="title" />
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        class="bg-gray-50 border border-gray-300 rounded-lg"
+      />
       <label for="body"></label>
-      <input type="text" id="body" formControlName="body" />
-      <button type="submit">Submit</button>
+      <input
+        type="text"
+        id="body"
+        formControlName="body"
+        class="bg-gray-50 border border-gray-300 rounded-lg"
+      />
+      <button type="submit" class="text-white bg-indigo-700 rounded-xl p-1">
+        Submit
+      </button>
     </form>
     <h3 class="my-100 text-indigo-900">{{ content }}</h3>
     <ul>
