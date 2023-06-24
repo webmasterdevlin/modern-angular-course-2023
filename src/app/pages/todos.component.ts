@@ -11,7 +11,7 @@ import { Actions, State } from '../store';
     <ul>
       <li *ngFor="let todo of store().todos; let i = index">
         <span data-testid="todo-title" class="mr-5">{{ todo.title }}</span>
-        <button class="text-red-400" (click)="handleRemoveTodoById(todo.id, i)">
+        <button class="text-red-400" (click)="handleRemoveTodoById(i)">
           done
         </button>
       </li>
@@ -28,6 +28,6 @@ export class TodosComponent implements OnInit {
     await this._actionsService.fetchTodos();
   }
 
-  handleRemoveTodoById = (id: number, index: number) =>
-    this._actionsService.removeTodoById(id, index);
+  handleRemoveTodoById = (index: number) =>
+    this._actionsService.removeTodoById(index);
 }
