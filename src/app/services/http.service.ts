@@ -9,7 +9,7 @@ export class HttpService {
     return await api.get<T>(`${endpoint}?_start=0&_limit=10`);
   }
 
-  async delete<T>(endpoint: EndPointsKeys, id: string) {
+  async delete<T>(endpoint: EndPointsKeys, id: number) {
     return await api.delete<T>(`${endpoint}/${id}`);
   }
 
@@ -17,7 +17,7 @@ export class HttpService {
     return await api.post<T>(`${endpoint}?_start=0&_limit=10`, arg);
   }
 
-  async put<RT, BT>(endpoint: EndPointsKeys, id: string, arg: BT) {
+  async put<RT, BT>(endpoint: EndPointsKeys, id: number, arg: BT) {
     return await api.put<RT>(`${endpoint}/${id}`, arg);
   }
 }
