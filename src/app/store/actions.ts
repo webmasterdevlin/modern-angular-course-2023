@@ -43,7 +43,7 @@ export class Actions {
   }
 
   // with no side effect because this has no asynchronous call
-  async removeTodoById(id: number, index: number) {
+  async removeTodoById(index: number) {
     this._stateService.store.mutate((state) => state.todos.splice(index, 1));
   }
 
