@@ -46,6 +46,7 @@ export class PostsComponent implements OnInit {
   store = this._stateService.store; // NOTE: Don't do this._stateService.store()
   private _actionsService = inject(Actions);
   private _formBuilder = inject(FormBuilder);
+
   postForm = this._formBuilder.group({
     userId: [0],
     title: ['', [Validators.required]],
