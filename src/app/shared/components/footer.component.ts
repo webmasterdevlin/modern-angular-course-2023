@@ -9,7 +9,7 @@ import { Getters, State } from '../../store';
       <pre class="font-bold">
 todos: {{ store().todos.length }}, posts: {{ store().posts.length }}</pre
       >
-      <pre>combined posts and todos: {{ total }}</pre>
+      <pre>combined posts and todos: {{ total() }}</pre>
     </footer>
   `,
 })
@@ -17,5 +17,5 @@ export class FooterComponent {
   stateService = inject(State);
   store = this.stateService.store;
   private _gettersService = inject(Getters);
-  total = this._gettersService.totalObjects();
+  total = this._gettersService.totalObjects;
 }
