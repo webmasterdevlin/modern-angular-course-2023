@@ -10,14 +10,14 @@ import { State } from '../../store';
   imports: [SharedModule, MenuComponent],
   template: `
     <nav>
-      <app-menu [label]="'home'" (handleClick)="to('/')"></app-menu>
+      <app-menu label="home" (handleClick)="to('/')"></app-menu>
       <app-menu
-        [label]="'todos'"
+        label="todos"
         [counter]="store().todos.length"
         (handleClick)="to('todos')"
       ></app-menu>
       <app-menu
-        [label]="'posts'"
+        label="posts"
         [counter]="store().posts.length"
         (handleClick)="to('posts')"
       ></app-menu>
