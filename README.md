@@ -84,6 +84,7 @@ module.exports = {
 - generate components/menu.component.ts -> path is src/app/shared/components
 - generate components/nav-bar.component.ts -> path is src/app/shared/components
 - add footer and nav-bar to app.component.html
+- update the menu, nav-bar, and footer
 - run the application and check state gets lost
 - generate utilities/local-storage.service.ts
 - update store/actions.ts
