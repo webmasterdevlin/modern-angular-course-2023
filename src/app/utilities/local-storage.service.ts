@@ -4,7 +4,7 @@ type StorageKey = string;
 
 @Injectable()
 export class LocalStorageService {
-  setItem(key: StorageKey, value: any): void {
+  setItem<T = any>(key: StorageKey, value: T): void {
     try {
       const serializedValue = JSON.stringify(value);
       localStorage.setItem(key, serializedValue);

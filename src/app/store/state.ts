@@ -12,11 +12,13 @@ export class State {
   store = signal<StoreType>(initialStoreState);
 
   constructor() {
-    const localStore = this._localStorageService.getItem(this.key);
+    const localStore = this._localStorageService.getItem<StoreType>(this.key);
     if (localStore) this.store.set(localStore);
 
     // the effect can only be used inside a constructor
-    effect(() => this._localStorageService.setItem(this.key, this.store()));
+    effect(() =>
+      this._localStorageService.setItem<StoreType>(this.key, this.store())
+    );
   }
 }
 
