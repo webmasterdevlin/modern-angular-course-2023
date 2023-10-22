@@ -15,7 +15,7 @@ export class Actions {
 
   constructor() {
     effect(() =>
-      this._localStorageService.setItem(this.key, this._stateService.store())
+      this._localStorageService.setItem(this.key, this._stateService.store()),
     );
   }
 
@@ -24,7 +24,10 @@ export class Actions {
     this.enableLoading();
     try {
       const { data } = await this._httpService.get<Todo[]>('todos');
-      this._stateService.store.mutate((store) => (store.todos = data));
+      this._stateService.store.update((store) => {
+        store.todos = data;
+        return store;
+      });
     } catch (e: any) {
       this.setError(e.message);
     }
@@ -35,7 +38,10 @@ export class Actions {
     this.enableLoading();
     try {
       const { data } = await this._httpService.get<Post[]>('posts');
-      this._stateService.store.mutate((store) => (store.posts = data));
+      this._stateService.store.update((store) => {
+        store.posts = data;
+        return store;
+      });
     } catch (e: any) {
       this.setError(e.message);
     }
@@ -44,14 +50,20 @@ export class Actions {
 
   // with no side effect because this has no asynchronous call
   removeTodoById(index: number) {
-    this._stateService.store.mutate((state) => state.todos.splice(index, 1));
+    this._stateService.store.update((state) => {
+      state.todos.splice(index, 1);
+      return state;
+    });
   }
 
   async createPost(value: Post) {
     this.enableLoading();
     try {
       const { data } = await this._httpService.post<Post>('posts', value);
-      this._stateService.store.mutate((state) => state.posts.push(data));
+      this._stateService.store.update((state) => {
+        state.posts.push(data);
+        return state;
+      });
     } catch (e: any) {
       this.setError(e.message);
     }
@@ -59,17 +71,24 @@ export class Actions {
   }
 
   private enableLoading() {
-    this._stateService.store.mutate((state) => {
+    this._stateService.store.update((state) => {
       state.loading = true;
       state.error = '';
+      return state;
     });
   }
 
   private disableLoading() {
-    this._stateService.store.mutate((state) => (state.loading = false));
+    this._stateService.store.update((state) => {
+      state.loading = false;
+      return state;
+    });
   }
 
   private setError(message: string) {
-    this._stateService.store.mutate((store) => (store.error = message));
+    this._stateService.store.update((store) => {
+      store.error = message;
+      return store;
+    });
   }
 }
