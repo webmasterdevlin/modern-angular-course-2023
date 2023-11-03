@@ -14,9 +14,10 @@ export class Actions {
   private _stateService = inject(State);
 
   constructor() {
-    effect(() =>
-      this._localStorageService.setItem(this.key, this._stateService.store()),
-    );
+    effect(() => {
+      alert('store updated');
+      this._localStorageService.setItem(this.key, this._stateService.store());
+    });
   }
 
   // with side effect because this is with asynchronous call

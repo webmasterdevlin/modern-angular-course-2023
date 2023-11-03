@@ -34,9 +34,11 @@ import { Actions, State } from '../store';
     </form>
     <h3 class="my-100 text-indigo-900">{{ content }}</h3>
     <ul>
-      <li *ngFor="let post of store().posts.reverse()">
+      @for (post of store().posts.reverse(); track post.id;) {
+      <li>
         <h3 data-testid="post-title">{{ post.title }}</h3>
       </li>
+      }
     </ul>
   </section>`,
 })

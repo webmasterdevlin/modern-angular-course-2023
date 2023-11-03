@@ -1151,3 +1151,29 @@
 [NX Daemon Server] - 2023-11-03T07:58:10.891Z - [REQUEST]: 
 [NX Daemon Server] - 2023-11-03T07:58:10.902Z - Time taken for 'hash changed files from watcher' 1.0363750457763672ms
 [NX Daemon Server] - 2023-11-03T07:58:10.970Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-03T08:01:13.913Z - Started listening on: /var/folders/w4/wfnc4mt52fvccdvf2m56rkd00000gn/T/74263d46d470cde65053/d.sock
+[NX Daemon Server] - 2023-11-03T08:01:13.914Z - [WATCHER]: Subscribed to changes within: /Users/devlinduldulao/Documents/DEVELOPMENT/Angular/modern-angular-main (native)
+[NX Daemon Server] - 2023-11-03T08:01:13.919Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2023-11-03T08:01:13.920Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2023-11-03T08:01:13.920Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2023-11-03T08:01:13.921Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2023-11-03T08:01:14.019Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-03T08:01:14.019Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-03T08:01:14.019Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-03T08:01:14.027Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2023-11-03T08:01:14.027Z - Done responding to the client project-graph
+[NX Daemon Server] - 2023-11-03T08:01:14.027Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 106. Response time: 0.
+[NX Daemon Server] - 2023-11-03T08:01:14.027Z - Time taken for 'total for creating and serializing project graph' 106.07070803642273ms
+[NX Daemon Server] - 2023-11-03T08:01:14.027Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-03T08:01:14.028Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2023-11-03T08:01:14.028Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2023-11-03T08:01:14.028Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2023-11-03T08:01:14.029Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2023-11-03T08:01:14.029Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2023-11-03T08:01:14.029Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2023-11-03T08:01:14.029Z - Handled REQUEST_FILE_DATA. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2023-11-03T08:01:14.089Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-03T08:21:10.305Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-03T08:21:10.306Z - [WATCHER]: Stopping the watcher for /Users/devlinduldulao/Documents/DEVELOPMENT/Angular/modern-angular-main (sources)
+[NX Daemon Server] - 2023-11-03T08:21:10.306Z - [WATCHER]: Stopping the watcher for /Users/devlinduldulao/Documents/DEVELOPMENT/Angular/modern-angular-main (outputs)
+[NX Daemon Server] - 2023-11-03T08:21:10.306Z - Server stopped because: "Lock file changed"

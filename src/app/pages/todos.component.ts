@@ -6,17 +6,17 @@ import { Actions, State } from '../store';
   selector: 'app-todos',
   standalone: true,
   imports: [SharedModule],
-  template: `
-    <h1>{{ store().loading ? 'loading..' : 'Todos Works!' }}</h1>
-    <ul>
-      <li *ngFor="let todo of store().todos; let i = index">
-        <span data-testid="todo-title" class="mr-5">{{ todo.title }}</span>
-        <button class="text-red-400" (click)="handleRemoveTodoById(i)">
-          done
-        </button>
-      </li>
-    </ul>
-  `,
+  template: `<h1>{{ store().loading ? 'loading..' : 'Todos Works!' }}</h1>
+  <ul>
+    @for (todo of store().todos; track todo.id; let idx = $index, e = $even) {
+    <li>
+      <span data-testid="todo-title" class="mr-5">{{ todo.title }}</span>
+      <button class="text-red-400" (click)="handleRemoveTodoById(idx)">
+        done
+      </button>
+    </li>
+    }
+  </ul>`,
 })
 export class TodosComponent implements OnInit {
   private _stateService = inject(State);
