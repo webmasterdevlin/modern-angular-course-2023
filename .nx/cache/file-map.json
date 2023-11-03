@@ -174,7 +174,7 @@
         },
         {
           "file": "package.json",
-          "hash": "8795609851280241476"
+          "hash": "15546525761972321989"
         },
         {
           "file": "project.json",
@@ -189,8 +189,16 @@
           ]
         },
         {
+          "file": "src/app/app.config.ts",
+          "hash": "15139204117673250801",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
           "file": "src/app/app.routes.ts",
-          "hash": "15554617212694065329",
+          "hash": "12788900921881908515",
           "deps": [
             "npm:@angular/router"
           ]
@@ -323,10 +331,9 @@
         },
         {
           "file": "src/main.ts",
-          "hash": "11461926037819608613",
+          "hash": "732663438483983849",
           "deps": [
-            "npm:@angular/platform-browser",
-            "npm:@angular/router"
+            "npm:@angular/platform-browser"
           ]
         },
         {
