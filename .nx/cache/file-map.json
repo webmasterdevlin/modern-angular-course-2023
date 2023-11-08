@@ -2,14 +2,14 @@
   "version": "6.0",
   "nxVersion": "17.0.3",
   "deps": {
-    "@angular/animations": "17.0.0-rc.3",
-    "@angular/common": "17.0.0-rc.3",
-    "@angular/compiler": "17.0.0-rc.3",
-    "@angular/core": "17.0.0-rc.3",
-    "@angular/forms": "17.0.0-rc.3",
-    "@angular/platform-browser": "17.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "17.0.0-rc.3",
-    "@angular/router": "17.0.0-rc.3",
+    "@angular/animations": "17.0.0",
+    "@angular/common": "17.0.0",
+    "@angular/compiler": "17.0.0",
+    "@angular/core": "17.0.0",
+    "@angular/forms": "17.0.0",
+    "@angular/platform-browser": "17.0.0",
+    "@angular/platform-browser-dynamic": "17.0.0",
+    "@angular/router": "17.0.0",
     "@ngneat/until-destroy": "10.0.0",
     "@nx/angular": "17.0.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -20,15 +20,15 @@
     "rxjs": "7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "0.14.2",
-    "@angular-devkit/build-angular": "17.0.0-rc.3",
-    "@angular-devkit/core": "17.0.0-rc.3",
-    "@angular-devkit/schematics": "17.0.0-rc.3",
+    "@angular-devkit/build-angular": "17.0.0",
+    "@angular-devkit/core": "17.0.0",
+    "@angular-devkit/schematics": "17.0.0",
     "@angular-eslint/eslint-plugin": "16.2.0",
     "@angular-eslint/eslint-plugin-template": "16.2.0",
     "@angular-eslint/template-parser": "16.2.0",
-    "@angular/cli": "17.0.0-rc.3",
-    "@angular/compiler-cli": "17.0.0-rc.3",
-    "@angular/language-service": "17.0.0-rc.3",
+    "@angular/cli": "17.0.0",
+    "@angular/compiler-cli": "17.0.0",
+    "@angular/language-service": "17.0.0",
     "@nx/cypress": "17.0.3",
     "@nx/eslint-plugin": "17.0.3",
     "@nx/jest": "17.0.3",
@@ -36,10 +36,10 @@
     "@nx/linter": "17.0.3",
     "@nx/web": "17.0.3",
     "@nx/workspace": "17.0.3",
-    "@schematics/angular": "17.0.0-rc.3",
+    "@schematics/angular": "17.0.0",
     "@testing-library/cypress": "^10.0.1",
-    "@types/jest": "^29.5.7",
-    "@types/node": "20.8.10",
+    "@types/jest": "^29.5.8",
+    "@types/node": "20.9.0",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "autoprefixer": "^10.4.16",
@@ -63,6 +63,59 @@
   "fileMap": {
     "nonProjectFiles": [],
     "projectFileMap": {
+      "e2e": [
+        {
+          "file": "e2e/.eslintrc.json",
+          "hash": "6465058199699877180"
+        },
+        {
+          "file": "e2e/cypress.config.ts",
+          "hash": "15414076024138857470",
+          "deps": [
+            "npm:cypress",
+            "npm:@nx/cypress/plugins/cypress-preset"
+          ]
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "14275565120136483227"
+        },
+        {
+          "file": "e2e/src/e2e/home.cy.ts",
+          "hash": "11917028295427421742"
+        },
+        {
+          "file": "e2e/src/e2e/posts.cy.ts",
+          "hash": "13844444544696835621"
+        },
+        {
+          "file": "e2e/src/e2e/todos.cy.ts",
+          "hash": "17058188769238024650"
+        },
+        {
+          "file": "e2e/src/fixtures/example.json",
+          "hash": "11614668686582597233"
+        },
+        {
+          "file": "e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "e2e/src/support/commands.ts",
+          "hash": "1094812379536286795",
+          "deps": [
+            "npm:@testing-library/cypress/add-commands"
+          ]
+        },
+        {
+          "file": "e2e/src/support/e2e.ts",
+          "hash": "3666078656922506009"
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "1423156233681105325"
+        }
+      ],
       "app": [
         {
           "file": ".eslintignore",
@@ -102,7 +155,7 @@
         },
         {
           "file": "bun.lockb",
-          "hash": "14307915727301023814"
+          "hash": "4980869331260926365"
         },
         {
           "file": "jest.config.ts",
@@ -121,7 +174,7 @@
         },
         {
           "file": "package.json",
-          "hash": "10521463096167675587"
+          "hash": "14577897000847480830"
         },
         {
           "file": "project.json",
@@ -313,59 +366,6 @@
         {
           "file": "tsconfig.spec.json",
           "hash": "16287279946930924495"
-        }
-      ],
-      "e2e": [
-        {
-          "file": "e2e/.eslintrc.json",
-          "hash": "6465058199699877180"
-        },
-        {
-          "file": "e2e/cypress.config.ts",
-          "hash": "15414076024138857470",
-          "deps": [
-            "npm:cypress",
-            "npm:@nx/cypress/plugins/cypress-preset"
-          ]
-        },
-        {
-          "file": "e2e/project.json",
-          "hash": "14275565120136483227"
-        },
-        {
-          "file": "e2e/src/e2e/home.cy.ts",
-          "hash": "11917028295427421742"
-        },
-        {
-          "file": "e2e/src/e2e/posts.cy.ts",
-          "hash": "13844444544696835621"
-        },
-        {
-          "file": "e2e/src/e2e/todos.cy.ts",
-          "hash": "17058188769238024650"
-        },
-        {
-          "file": "e2e/src/fixtures/example.json",
-          "hash": "11614668686582597233"
-        },
-        {
-          "file": "e2e/src/support/app.po.ts",
-          "hash": "11157016311132186162"
-        },
-        {
-          "file": "e2e/src/support/commands.ts",
-          "hash": "1094812379536286795",
-          "deps": [
-            "npm:@testing-library/cypress/add-commands"
-          ]
-        },
-        {
-          "file": "e2e/src/support/e2e.ts",
-          "hash": "3666078656922506009"
-        },
-        {
-          "file": "e2e/tsconfig.json",
-          "hash": "1423156233681105325"
         }
       ]
     }
