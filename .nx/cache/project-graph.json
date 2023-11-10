@@ -4,8 +4,8 @@
       "name": "e2e",
       "type": "e2e",
       "data": {
-        "name": "e2e",
         "root": "e2e",
+        "name": "e2e",
         "$schema": "../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "e2e/src",
         "projectType": "application",
@@ -58,13 +58,8 @@
       "name": "app",
       "type": "app",
       "data": {
-        "name": "app",
         "root": ".",
-        "$schema": "node_modules/nx/schemas/project-schema.json",
-        "projectType": "application",
-        "prefix": "app",
-        "sourceRoot": "./src",
-        "tags": [],
+        "name": "app",
         "targets": {
           "start": {
             "executor": "nx:run-script",
@@ -211,6 +206,11 @@
             "configurations": {}
           }
         },
+        "$schema": "node_modules/nx/schemas/project-schema.json",
+        "projectType": "application",
+        "prefix": "app",
+        "sourceRoot": "./src",
+        "tags": [],
         "implicitDependencies": []
       }
     }

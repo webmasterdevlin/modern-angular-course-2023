@@ -15,7 +15,7 @@ export class Actions {
 
   constructor() {
     effect(() => {
-      alert('store updated');
+      console.log(this._stateService.store());
       this._localStorageService.setItem(this.key, this._stateService.store());
     });
   }
