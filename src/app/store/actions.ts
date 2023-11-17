@@ -25,9 +25,9 @@ export class Actions {
     this.enableLoading();
     try {
       const { data } = await this._httpService.get<Todo[]>('todos');
-      this._stateService.store.update((store) => {
-        store.todos = data;
-        return store;
+      this._stateService.store.update((state) => {
+        state.todos = data;
+        return { ...state };
       });
     } catch (e: any) {
       this.setError(e.message);
@@ -39,9 +39,9 @@ export class Actions {
     this.enableLoading();
     try {
       const { data } = await this._httpService.get<Post[]>('posts');
-      this._stateService.store.update((store) => {
-        store.posts = data;
-        return store;
+      this._stateService.store.update((state) => {
+        state.posts = data;
+        return { ...state };
       });
     } catch (e: any) {
       this.setError(e.message);
@@ -53,7 +53,7 @@ export class Actions {
   removeTodoById(index: number) {
     this._stateService.store.update((state) => {
       state.todos.splice(index, 1);
-      return state;
+      return { ...state };
     });
   }
 
@@ -63,7 +63,7 @@ export class Actions {
       const { data } = await this._httpService.post<Post>('posts', value);
       this._stateService.store.update((state) => {
         state.posts.push(data);
-        return state;
+        return { ...state };
       });
     } catch (e: any) {
       this.setError(e.message);
@@ -75,21 +75,21 @@ export class Actions {
     this._stateService.store.update((state) => {
       state.loading = true;
       state.error = '';
-      return state;
+      return { ...state };
     });
   }
 
   private disableLoading() {
     this._stateService.store.update((state) => {
       state.loading = false;
-      return state;
+      return { ...state };
     });
   }
 
   private setError(message: string) {
-    this._stateService.store.update((store) => {
-      store.error = message;
-      return store;
+    this._stateService.store.update((state) => {
+      state.error = message;
+      return { ...state };
     });
   }
 }
