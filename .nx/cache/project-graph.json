@@ -5,17 +5,13 @@
       "type": "e2e",
       "data": {
         "root": "e2e",
-        "name": "e2e",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "e2e/src",
-        "projectType": "application",
         "targets": {
           "e2e": {
+            "executor": "@nx/cypress:cypress",
             "inputs": [
               "default",
               "^production"
             ],
-            "executor": "@nx/cypress:cypress",
             "options": {
               "cypressConfig": "e2e/cypress.config.ts",
               "devServerTarget": "app:serve:development",
@@ -31,12 +27,12 @@
             }
           },
           "lint": {
+            "executor": "@nx/linter:eslint",
             "inputs": [
               "default",
               "{workspaceRoot}/.eslintrc.json",
               "{workspaceRoot}/.eslintignore"
             ],
-            "executor": "@nx/linter:eslint",
             "outputs": [
               "{options.outputFile}"
             ],
@@ -48,6 +44,10 @@
             "configurations": {}
           }
         },
+        "name": "e2e",
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "e2e/src",
+        "projectType": "application",
         "tags": [],
         "implicitDependencies": [
           "app"
@@ -69,6 +69,7 @@
             "configurations": {}
           },
           "build": {
+            "executor": "@angular-devkit/build-angular:browser",
             "dependsOn": [
               "^build"
             ],
@@ -76,7 +77,6 @@
               "production",
               "^production"
             ],
-            "executor": "@angular-devkit/build-angular:browser",
             "outputs": [
               "{options.outputPath}"
             ],
@@ -125,12 +125,12 @@
             "defaultConfiguration": "production"
           },
           "test": {
+            "executor": "@nx/jest:jest",
             "inputs": [
               "default",
               "^production",
               "{workspaceRoot}/jest.preset.js"
             ],
-            "executor": "@nx/jest:jest",
             "outputs": [
               "{workspaceRoot}/coverage/{projectName}"
             ],
@@ -152,12 +152,22 @@
             },
             "configurations": {}
           },
-          "nx-release-publish": {
-            "dependsOn": [
-              "^nx-release-publish"
+          "lint": {
+            "executor": "@nx/linter:eslint",
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
             ],
-            "executor": "@nx/js:release-publish",
-            "options": {},
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "./src/**/*.ts",
+                "./src/**/*.html"
+              ]
+            },
             "configurations": {}
           },
           "serve": {
@@ -177,24 +187,6 @@
             "executor": "@angular-devkit/build-angular:extract-i18n",
             "options": {
               "buildTarget": "app:build"
-            },
-            "configurations": {}
-          },
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "./src/**/*.ts",
-                "./src/**/*.html"
-              ]
             },
             "configurations": {}
           },
