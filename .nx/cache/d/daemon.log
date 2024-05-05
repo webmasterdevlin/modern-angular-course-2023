@@ -1838,3 +1838,7 @@ Node.js v18.18.2
 [NX Daemon Server] - 2024-05-05T10:34:03.224Z - Done responding to the client recordOutputsHash
 [NX Daemon Server] - 2024-05-05T10:34:03.224Z - Handled RECORD_OUTPUTS_HASH. Handling time: 19. Response time: 1.
 [NX Daemon Server] - 2024-05-05T10:34:03.252Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-05-05T10:34:57.900Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-05T10:34:57.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-05-05T10:35:36.882Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-05-05T10:35:36.894Z - Closed a connection. Number of open connections: 0
