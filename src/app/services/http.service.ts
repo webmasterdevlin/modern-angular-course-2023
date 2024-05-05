@@ -14,7 +14,7 @@ export class HttpService {
   }
 
   async post<T>(endpoint: EndPointsKeys, arg: T) {
-    return await api.post<T>(`${endpoint}?_start=0&_limit=10`, arg);
+    return await api.post<T>(endpoint, arg);
   }
 
   async put<RT, BT>(endpoint: EndPointsKeys, id: number, arg: BT) {
