@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
-  standalone: true,
   template: `
     <button
       (click)="to()"

@@ -4,7 +4,6 @@ import { State } from '../store';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [SharedModule],
   template: `
     <section>

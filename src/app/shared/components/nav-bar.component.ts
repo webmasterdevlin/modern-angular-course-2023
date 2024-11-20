@@ -6,7 +6,6 @@ import { State } from '../../store';
 
 @Component({
   selector: 'app-nav-bar',
-  standalone: true,
   imports: [SharedModule, MenuComponent],
   template: `
     <nav>

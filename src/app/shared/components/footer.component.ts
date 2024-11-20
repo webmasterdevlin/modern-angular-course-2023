@@ -3,7 +3,6 @@ import { Getters, State } from '../../store';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   template: `
     <footer class="my-5 bg-white">
       <pre class="font-bold">

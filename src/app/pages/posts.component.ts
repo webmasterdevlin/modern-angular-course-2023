@@ -9,7 +9,6 @@ import { Actions, State } from '../store';
 @UntilDestroy()
 @Component({
   selector: 'app-posts',
-  standalone: true,
   imports: [SharedModule],
   template: `<section>
     <h1>Posts Works!</h1>
@@ -34,10 +33,10 @@ import { Actions, State } from '../store';
     </form>
     <h3 class="my-100 text-indigo-900">{{ content }}</h3>
     <ul>
-      @for (post of store().posts.reverse(); track post.id;) {
-      <li>
-        <h3 data-testid="post-title">{{ post.title }}</h3>
-      </li>
+      @for (post of store().posts.reverse(); track post.id) {
+        <li>
+          <h3 data-testid="post-title">{{ post.title }}</h3>
+        </li>
       }
     </ul>
   </section>`,
@@ -77,7 +76,7 @@ export class PostsComponent implements OnInit {
           debounceTime(1000),
           distinctUntilChanged(),
           combineLatestWith(bodyValueChanges),
-          untilDestroyed(this)
+          untilDestroyed(this),
         )
         .subscribe(([title, body]) => {
           if (title && body) this.content = `${title}: "${body}"`;
